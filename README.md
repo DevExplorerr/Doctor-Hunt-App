@@ -1,9 +1,31 @@
-# doctor_app_ui
+Doctor Hunt 🏥📱
+A Flutter-powered healthcare app for seamless doctor appointments and pharmacy orders.
 
-A new Flutter project.
+Features ✨
+User Authentication – Login & Signup
+Find & Book Doctors – Popular & Live Doctors
+Pharmacy with Cart – Add medicines using GetX
+Checkout & Payment – Address, Promo Code, and Flutter Credit Card integration
+Stepper Widget – Manage delivery addresses smoothly
 
-## Getting Started
+Tech Stack 🔧
+Flutter – Cross-platform app development
+GetX – State management
+Flutter Credit Card Dependency – Secure payment handling
 
-This project is a starting point for a Flutter application.
+Setup Instructions 🛠
 
-A few resources to get you started if this is your first Flutter project:
+Clone the repository:
+git clone https://github.com/yourusername/doctor-hunt.git
+
+Navigate to the project folder:
+cd doctor-hunt
+
+Install dependencies:
+flutter pub get
+
+Run the app:
+flutter run
+
+Contributing 🤝
+Pull requests are welcome! Feel free to open an issue for suggestions or improvements.
