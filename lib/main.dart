@@ -1,6 +1,7 @@
-import 'splash-screen.dart';
-import 'onboarding-screen.dart';
+import 'package:doctor_app_ui/screens/onboarding/onboarding_screen.dart';
+import 'package:doctor_app_ui/screens/onboarding/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: "Doctor Hunt",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -19,8 +20,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => Splashscreen(),
-        '/onboardingscreen': (context) => Onboardingscreen(),
+        '/': (context) => const SplashScreen(),
+        '/onboardingscreen': (context) => const OnBoardingScreen(),
       },
     );
   }
