@@ -19,18 +19,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.14.2 
+  flutter_lints: ^3.0.0
 
 flutter_icons:
   android: true
   ios: true
-  web:
-    generate: true
-    image_path: "assets/images/app_logo.png"
-    background_color: "0xffFFFFFF"
-  image_path: "assets/images/app_logo.png"  
-
-  flutter_lints: ^3.0.0
-
+  image_path: "assets/images/doctor_hunt_logo.png"  
 
 flutter:
 

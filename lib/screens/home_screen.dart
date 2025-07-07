@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Container(), // Placeholder
       const FavoriteScreen(),
       const PharmacyPage(),
-      ProfileScreen(),
+      const ProfileScreen(),
     ];
   }
 
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _buildHomeContent(),
       const FavoriteScreen(),
       const PharmacyPage(),
-      ProfileScreen(),
+      const ProfileScreen(),
     ];
   }
 
@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
           GestureDetector(
             onTap: () {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => ProfileScreen()));
+                  MaterialPageRoute(builder: (context) => const ProfileScreen()));
             },
             child: CircleAvatar(
               radius: MediaQuery.of(context).size.width * 0.08,
@@ -435,7 +435,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FindDoctorsScreen()));
+                        builder: (context) => const FindDoctorsScreen()));
               },
               text: "Feature Doctor"),
           SizedBox(height: MediaQuery.of(context).size.height * 0.01),

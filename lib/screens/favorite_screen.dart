@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FavoriteScreen extends StatefulWidget {
-  const FavoriteScreen({Key? key}) : super(key: key);
+  const FavoriteScreen({super.key});
 
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
@@ -221,7 +221,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => FindDoctorsScreen()),
+                MaterialPageRoute(builder: (context) => const FindDoctorsScreen()),
               );
             },
             text: "Feature Doctor",

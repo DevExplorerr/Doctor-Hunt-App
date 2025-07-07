@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -162,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SignUpScreen()));
+                            builder: (context) => const SignUpScreen()));
                   },
                   child: Text(
                     'Don’t have an account? Join us',
@@ -261,7 +263,7 @@ class _LoginScreenState extends State<LoginScreen> {
 }
 
   void showForgotPasswordSheet(BuildContext context) {
-    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -270,18 +272,18 @@ class _LoginScreenState extends State<LoginScreen> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
       ),
       builder: (context) {
-        String? _emailError;
+        String? emailError;
         return StatefulBuilder(builder: (context, setModalState) {
-          void _validateFields() {
+          void validateFields() {
             setModalState(() {
-              _emailError = _emailController.text.isEmpty
+              emailError = emailController.text.isEmpty
                   ? 'Email is Required'
-                  : !_emailController.text.contains('@gmail.com')
+                  : !emailController.text.contains('@gmail.com')
                       ? 'Enter a valid Email'
                       : null;
             });
 
-            if (_emailError == null) {
+            if (emailError == null) {
               Navigator.pop(context);
               showOTPVerificationSheet(context);
             }
@@ -323,10 +325,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                 TextFormField(
-                  controller: _emailController,
+                  controller: emailController,
                   cursorColor: const Color(0xff0EBE7F),
                   decoration: InputDecoration(
-                    errorText: _emailError,
+                    errorText: emailError,
                     hintText: 'Email',
                     hintStyle: GoogleFonts.rubik(
                         fontSize: MediaQuery.of(context).size.width * 0.04,
@@ -355,7 +357,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      _validateFields();
+                      validateFields();
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff0EBE7F),
@@ -382,9 +384,9 @@ class _LoginScreenState extends State<LoginScreen> {
   void showOTPVerificationSheet(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    final _otpControllers =
+    final otpControllers =
         List.generate(4, (index) => TextEditingController());
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
 
     showModalBottomSheet(
       context: context,
@@ -402,7 +404,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 vertical: screenHeight * 0.08,
               ),
               child: Form(
-                key: _formKey,
+                key: formKey,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -443,7 +445,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: screenWidth * 0.14,
                           child: TextFormField(
                             cursorColor: const Color(0xff0EBE7F),
-                            controller: _otpControllers[index],
+                            controller: otpControllers[index],
                             textAlign: TextAlign.center,
                             style: GoogleFonts.ptSans(
                               fontSize: screenWidth * 0.05,
@@ -478,7 +480,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: screenWidth,
                       child: ElevatedButton(
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
+                          if (formKey.currentState!.validate()) {
                             Navigator.pop(context);
                             showResetPasswordSheet(context);
                           }
@@ -510,9 +512,9 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void showResetPasswordSheet(BuildContext context) {
-    final TextEditingController _newPasswordController =
+    final TextEditingController newPasswordController =
         TextEditingController();
-    final TextEditingController _reEnterPasswordController =
+    final TextEditingController reEnterPasswordController =
         TextEditingController();
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
@@ -525,29 +527,29 @@ class _LoginScreenState extends State<LoginScreen> {
           borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
         ),
         builder: (context) {
-          String? _newPasswordError;
-          String? _reEnterPasswordError;
+          String? newPasswordError;
+          String? reEnterPasswordError;
           return StatefulBuilder(
             builder: (context, setModalState) {
-              void _validateFields() {
+              void validateFields() {
                 setModalState(() {
-                  _newPasswordError = _newPasswordController.text.isEmpty
+                  newPasswordError = newPasswordController.text.isEmpty
                       ? 'Password is Required '
-                      : _newPasswordController.text.length < 6
+                      : newPasswordController.text.length < 6
                           ? 'Password must be at least 6 characters long'
                           : null;
 
-                  _reEnterPasswordError =
-                      _reEnterPasswordController.text.isEmpty
+                  reEnterPasswordError =
+                      reEnterPasswordController.text.isEmpty
                           ? 'Please Confirm your Password'
-                          : _reEnterPasswordController.text !=
-                                  _newPasswordController.text
+                          : reEnterPasswordController.text !=
+                                  newPasswordController.text
                               ? 'Passwords do not match'
                               : null;
                 });
 
-                if (_newPasswordError == null &&
-                    _reEnterPasswordError == null) {
+                if (newPasswordError == null &&
+                    reEnterPasswordError == null) {
                   Navigator.pop(context);
                 }
               }
@@ -589,11 +591,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     SizedBox(height: screenHeight * 0.025),
                     TextFormField(
-                      controller: _newPasswordController,
+                      controller: newPasswordController,
                       cursorColor: const Color(0xff0EBE7F),
                       obscureText: true,
                       decoration: InputDecoration(
-                        errorText: _newPasswordError,
+                        errorText: newPasswordError,
                         hintText: 'New Password',
                         hintStyle: GoogleFonts.rubik(
                             fontSize: screenWidth * 0.045,
@@ -612,11 +614,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     SizedBox(height: screenHeight * 0.02),
                     TextFormField(
-                      controller: _reEnterPasswordController,
+                      controller: reEnterPasswordController,
                       cursorColor: const Color(0xff0EBE7F),
                       obscureText: true,
                       decoration: InputDecoration(
-                        errorText: _reEnterPasswordError,
+                        errorText: reEnterPasswordError,
                         hintText: 'Re-enter Password',
                         hintStyle: GoogleFonts.rubik(
                             fontSize: screenWidth * 0.045,
@@ -638,7 +640,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: screenHeight * 0.07,
                       width: screenWidth,
                       child: ElevatedButton(
-                        onPressed: _validateFields,
+                        onPressed: validateFields,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xff0EBE7F),
                           shape: RoundedRectangleBorder(

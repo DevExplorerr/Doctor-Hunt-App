@@ -53,7 +53,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   void skipToHome() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) =>  LoginScreen()),
+      MaterialPageRoute(builder: (context) =>  const LoginScreen()),
     );
   }
 

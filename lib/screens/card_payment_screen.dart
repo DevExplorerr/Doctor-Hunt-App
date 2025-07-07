@@ -149,7 +149,7 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
                             duration: const Duration(milliseconds: 800),
                             colorText: const Color(0xff000000),
                             padding: const EdgeInsets.all(15),
-                            backgroundColor: const Color(0xff),
+                            backgroundColor: const Color(0x000000ff),
                             margin: const EdgeInsets.only(
                                 bottom: 20, left: 10, right: 10),
                           );

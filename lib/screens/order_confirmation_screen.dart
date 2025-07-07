@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../screens/home_screen.dart';
 
 class OrderConfirmationScreen extends StatelessWidget {
+  const OrderConfirmationScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;

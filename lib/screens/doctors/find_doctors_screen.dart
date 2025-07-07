@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FindDoctorsScreen extends StatelessWidget {
-  FindDoctorsScreen({super.key});
+  const FindDoctorsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -192,7 +192,7 @@ class _SelectTimeScreenState extends State<SelectTimeScreen> {
               fontWeight: FontWeight.w400),
         ),
         const SizedBox(height: 15),
-        Container(
+        SizedBox(
           height: 54,
           width: 306,
           child: OutlinedButton(
@@ -200,10 +200,10 @@ class _SelectTimeScreenState extends State<SelectTimeScreen> {
             style: OutlinedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6)),
-              side: const BorderSide(color: const Color(0xff0EBE7F)),
+              side: const BorderSide(color: Color(0xff0EBE7F)),
             ),
             child: const Text("Contact Clinic",
-                style: TextStyle(color: const Color(0xff0EBE7F))),
+                style: TextStyle(color: Color(0xff0EBE7F))),
           ),
         ),
       ],

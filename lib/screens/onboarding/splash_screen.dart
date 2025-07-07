@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, use_build_context_synchronously
 
 import 'package:doctor_app_ui/screens/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
